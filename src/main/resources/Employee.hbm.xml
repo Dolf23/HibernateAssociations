@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="by.itacademy.workbook.beans">
+    <class name="Employee" lazy="false">
+        <id name="employeeId">
+            <generator class="increment"/>
+        </id>
+        <one-to-one name="address" class="Address"/>
+        <many-to-one name="department" class="Department" fetch="select" column="f_department_id"/>
+        <property name="name"/>
+        <property name="surname"/>
+    </class>
+</hibernate-mapping>
